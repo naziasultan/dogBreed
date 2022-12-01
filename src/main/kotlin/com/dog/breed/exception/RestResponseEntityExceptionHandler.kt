@@ -24,6 +24,4 @@ class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
             HttpHeaders(), HttpStatus.CONFLICT, request
         )
     }
-
-    //Done: FIXME: it does not compile
 }

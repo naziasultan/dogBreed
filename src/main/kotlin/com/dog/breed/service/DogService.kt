@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.awaitBody
 
-//FIXME: class is not properly formatted
 @Service
 class DogService {
 
@@ -20,8 +19,8 @@ class DogService {
      */
     @Autowired
     lateinit var webClient: WebClient
-    suspend fun getBreed(): Dog { // Done: FIXME: Object class is from Java world, kotlin.Any class is from Kotlin world.
-        val dog = webClient.get() //Done: FIXME: why var, not val?
+    suspend fun getBreed(): Dog {
+        val dog = webClient.get()
             .uri("/api/breeds/list/all")
             .accept(MediaType.APPLICATION_JSON)
             .retrieve().awaitBody<Dog>()
@@ -29,8 +28,8 @@ class DogService {
         return dog
     }
 
-    suspend fun getBreed(name: String): Dog { //Done: FIXME: Object class is from Java world, kotlin.Any class is from Kotlin world.
-        val image = webClient.get() //Done: FIXME: why var, not val?
+    suspend fun getBreed(name: String): Dog {
+        val image = webClient.get()
             .uri("api/breed/{name}/images")
             .accept(MediaType.APPLICATION_JSON)
             .retrieve().awaitBody<Dog>()
