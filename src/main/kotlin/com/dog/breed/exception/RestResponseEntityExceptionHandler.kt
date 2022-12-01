@@ -16,7 +16,7 @@ class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
         HttpClientErrorException.BadRequest ::class, HttpClientErrorException.BadRequest::class,
         HttpClientErrorException.Forbidden::class])
     protected fun handleConflict(
-        ex: RuntimeException?, request: WebRequest?
+        ex: java.lang.Exception, request: WebRequest
     ): ResponseEntity<Any> {
         val bodyOfResponse = "Error Response"
         return handleExceptionInternal(
@@ -25,5 +25,5 @@ class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
         )
     }
 
-    //FIXME: it does not compile
+    //Done: FIXME: it does not compile
 }
